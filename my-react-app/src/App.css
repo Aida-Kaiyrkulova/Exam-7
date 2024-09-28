@@ -1,0 +1,59 @@
+.app {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.order-details {
+    flex: 1;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.menu-buttons {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+h2, h3 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-button:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.menu-button-image {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+}
+
+.menu-button-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}

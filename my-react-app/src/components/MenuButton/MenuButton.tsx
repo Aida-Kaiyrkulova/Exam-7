@@ -1,15 +1,22 @@
 import React from 'react';
-import { Product } from '../../types.ts';
+import { Product } from '../../types';
 
 interface MenuButtonProps {
-    product: Product; // Используем Product вместо Menu
+    product: Product;
     addProduct: (product: { name: string; price: number }) => void;
 }
 
 const MenuButton: React.FC<MenuButtonProps> = ({ product, addProduct }) => {
     return (
-        <button onClick={() => addProduct({ name: product.name, price: product.price })}>
-            {product.name} - {product.price} KGS
+        <button className="menu-button" onClick={() => addProduct({ name: product.name, price: product.price })}>
+            <img
+                src={(`../../assets/${product.name}.jpeg`)}
+                alt={product.name}
+                className="menu-button-image"
+            />
+            <div className="menu-button-text">
+                {product.name} - {product.price} KGS
+            </div>
         </button>
     );
 };
