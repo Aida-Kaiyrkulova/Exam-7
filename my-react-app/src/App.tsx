@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MenuButton from './components/MenuButton/MenuButton';
+import OrderList from './components/OrderList/OrderList';
 import { products } from './types';
 import './App.css';
 
@@ -18,11 +18,26 @@ const App: React.FC = () => {
     });
   };
 
+  const totalPrice = Object.values(order).reduce((total, item) => total + item.quantity * item.price, 0);
+
   return (
       <div className="app">
-        {products.map(product => (
-            <MenuButton key={product.id} product={product} addProduct={addProduct} />
-        ))}
+        <div className="order-details">
+          <h2>Заказ</h2>
+          {Object.entries(order).length === 0 ? (
+              <p>В заказе ничего нет</p>
+          ) : (
+              <ul>
+                {Object.entries(order).map(([name, { quantity, price }]) => (
+                    <li key={name}>
+                      {name} - {quantity} шт. - {price * quantity} KGS
+                    </li>
+                ))}
+              </ul>
+          )}
+          <h3>Общая сумма: {totalPrice} KGS</h3>
+        </div>
+        <OrderList products={products} addProduct={addProduct} /> {/* Используем OrderList */}
       </div>
   );
 };

@@ -22,3 +22,4 @@ const MenuButton: React.FC<MenuButtonProps> = ({ product, addProduct }) => {
 };
 
 export default MenuButton;
+
